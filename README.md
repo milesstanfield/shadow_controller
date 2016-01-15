@@ -49,6 +49,47 @@ end
 
 ```
 
+## Example
+
+Your ApplicationController
+```ruby
+# app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+
+  def redirect_somewhere
+    redirect_to 'http://www.example.com'
+  end
+end
+```
+
+Your controller spec
+```
+# spec/controllers/application_controller_spec.rb
+require "spec_helper"
+
+describe ApplicationController, type: :controller do
+  cast_shadow ApplicationController
+
+  it "#redirect_somewhere" do
+    get :redirect_somewhere
+    expect(response).to redirect_to 'http://www.example.com'
+  end
+end
+
+```
+
+Without the ShadowController helper in use above or any other configurations, this test would have failed with the following error
+
+```ruby
+1) ApplicationController #redirect_somewhere
+     Failure/Error: get :redirect_somewhere
+
+     ActionController::UrlGenerationError:
+       No route matches {:action=>"redirect_somewhere", :controller=>"application"}
+     # ./spec/controllers/application_controller_spec.rb:8:in `block (2 levels) in <top (required)>'
+```
+
 
 ## Contributing
 
