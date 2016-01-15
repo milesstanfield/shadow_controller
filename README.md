@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :development, :test do
-  gem 'shadow_controller'
+  gem 'shadow_controller', '~> 0.1.1'
 end
 ```
 
@@ -20,7 +20,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install shadow_controller
+    $ gem install shadow_controller -v 0.1.1
 
 
 ## Usage
@@ -30,7 +30,7 @@ Install [rspec-rails](https://github.com/rspec/rspec-rails)
 Include ShadowController in your RSpec configure.
 
 ```ruby
-# spec/spec_helper.rb
+# spec/rails_helper.rb
 RSpec.configure do |config|
   include ShadowController
 end
