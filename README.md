@@ -25,7 +25,9 @@ Or install it yourself as:
 
 ## Usage
 
-Include the ShadowController in your RSpec configure.
+Install [rspec-rails](https://github.com/rspec/rspec-rails)
+
+Include ShadowController in your RSpec configure.
 
 ```ruby
 # spec/spec_helper.rb
@@ -34,7 +36,7 @@ RSpec.configure do |config|
 end
 ```
 
-Now cast the shadow helper in your spec
+Use the cast_shadow method in your spec
 ```ruby
 # spec/controllers/application_controller_spec.rb
 require "spec_helper"
@@ -49,10 +51,12 @@ end
 
 ```
 
-## Example
+## Example Use-case
 
-Your ApplicationController
 ```ruby
+# config/routes.rb
+get "/resource", to: "application#redirect_somewhere"
+---
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
@@ -62,8 +66,7 @@ class ApplicationController < ActionController::Base
   end
 end
 ```
-
-Your controller spec
+---
 ```ruby
 # spec/controllers/application_controller_spec.rb
 require "spec_helper"
@@ -79,7 +82,7 @@ end
 
 ```
 
-Without the ShadowController helper in use above or any other configurations, this test would have failed with the following error
+Without the cast_shadow method (above) or extra configurations, this test would have failed with the following error
 
 ```ruby
 1) ApplicationController #redirect_somewhere
