@@ -64,7 +64,7 @@ end
 ```
 
 Your controller spec
-```
+```ruby
 # spec/controllers/application_controller_spec.rb
 require "spec_helper"
 
