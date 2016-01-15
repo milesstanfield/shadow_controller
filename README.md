@@ -56,7 +56,7 @@ end
 ```ruby
 # config/routes.rb
 get "/resource", to: "application#redirect_somewhere"
----
+
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
@@ -65,9 +65,7 @@ class ApplicationController < ActionController::Base
     redirect_to 'http://www.example.com'
   end
 end
-```
----
-```ruby
+
 # spec/controllers/application_controller_spec.rb
 require "spec_helper"
 
