@@ -42,7 +42,7 @@ Use the cast_shadow method in your spec
 require "spec_helper"
 
 describe ApplicationController, type: :controller do
-  cast_shadow ApplicationController
+  shadow_controller
 
   it "..." do
     ...
@@ -70,7 +70,7 @@ end
 require "spec_helper"
 
 describe ApplicationController, type: :controller do
-  cast_shadow ApplicationController
+  shadow_controller
 
   it "#redirect_somewhere" do
     get :redirect_somewhere
@@ -80,7 +80,7 @@ end
 
 ```
 
-Without the cast_shadow method (above) or extra configurations, this test would have failed with the following error
+Without the shadow_controller method (above) or extra configurations, this test would have failed with the following error
 
 ```ruby
 1) ApplicationController #redirect_somewhere

@@ -1,7 +1,8 @@
 require "shadow_controller/version"
 
 module ShadowController
-  def cast_shadow(controller)
+  def shadow_controller
+    controller = self.described_class
     raise_misuse if misused? controller
     mock controller
     draw_routes controller

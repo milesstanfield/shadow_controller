@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["milesstanfield@gmail.com"]
 
   spec.summary       = %q{An RSpec helper that makes testing your rails ApplicationController a cool breeze.}
-  spec.description   = %q{Testing your ApplicationController often requires using the AnonymousController and drawing custom routes. This helper does all that for you and prevents you from having to update your AnonymousController whenever you make a change to the ApplicationController.'}
+  spec.description   = %q{Testing your ApplicationController with RSpec often requires using the AnonymousController and drawing custom routes. This helper does all that for you and prevents you from having to update your AnonymousController whenever you make a change to the ApplicationController.'}
   spec.homepage      = "https://github.com/milesstanfield/shadow_controller"
   spec.license       = "MIT"
 
