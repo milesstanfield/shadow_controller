@@ -1,9 +1,11 @@
 require "shadow_controller/version"
+require "shadow_controller/configuration"
 
 module ShadowController
   def shadow_controller
     controller = self.described_class
     raise_misuse if misused? controller
+    create_shadow_views controller
     mock controller
     draw_routes controller
   end
@@ -49,6 +51,15 @@ module ShadowController
         put "/anonymous/#{action}"
         delete "/anonymous/#{action}"
       ]
+    end
+  end
+
+  def create_shadow_views(controller)
+    system `mkdir -p tmp/rspec/shadow_controller/anonymous`
+    actions(controller).map do |action|
+      ShadowController.configuration.file_extensions.each do |file_extension|
+        system `touch tmp/rspec/shadow_controller/anonymous/#{action}.#{file_extension}`
+      end
     end
   end
 end

@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :development, :test do
-  gem 'shadow_controller', '~> 0.1.1'
+  gem 'shadow_controller'
 end
 ```
 
@@ -20,7 +20,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install shadow_controller -v 0.1.1
+    $ gem install shadow_controller
 
 
 ## Usage
